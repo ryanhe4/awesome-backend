@@ -1,4 +1,4 @@
-import { Context, createMockContext, MockContext } from '../../db/context'
+import { Context, createMockContext, MockContext } from 'db/context'
 import { CreatePostParam, PostService } from '../postService'
 import { posts as post_fixture, post } from '../../../fixture/posts'
 

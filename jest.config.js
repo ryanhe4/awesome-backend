@@ -10,6 +10,6 @@ module.exports = {
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
 
   moduleNameMapper: {
-    'src/(.*)': '<rootDir>/src/$1',
+    '^(.*)/(.*)$': '<rootDir>/src/$1/$2',
   },
 }
