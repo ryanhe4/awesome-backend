@@ -1,10 +1,10 @@
 import bcrypt from 'bcrypt'
 
-const salt = "&z[J%HqUa6sM'wc}"
+const saltRound = 10
 
 class Crypter {
   async hash(value: string) {
-    const result = await bcrypt.hash(value, salt)
+    const result = await bcrypt.hash(value, saltRound)
     return result
   }
 
