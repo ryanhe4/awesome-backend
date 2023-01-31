@@ -6,6 +6,7 @@
   "license": "MIT",
   "devDependencies": {
     "@jest/types": "29.1.2",
+    "@types/bcrypt": "^5.0.0",
     "@types/jest": "^29.0.0",
     "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
@@ -21,15 +22,18 @@
     "prisma": "^4.9.0",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2",
     "typescript": "^4.9.4"
   },
   "dependencies": {
     "@fastify/type-provider-typebox": "^2.4.0",
     "@prisma/client": "^4.9.0",
+    "@sinclair/typebox": "^0.25.21",
+    "bcrypt": "^5.1.0",
     "fastify": "^4.12.0"
   },
   "scripts": {
-    "dev": "nodemon --watch ./src --exec \"ts-node --transpile-only -r ./src/index.ts | pino-pretty\" -e ts ",
+    "dev": "nodemon --watch ./src --exec \"ts-node --transpile-only -r tsconfig-paths/register ./src/index.ts | pino-pretty\" -e ts ",
     "test": "jest --watchAll",
     "migrate": "prisma migrate dev"
   }

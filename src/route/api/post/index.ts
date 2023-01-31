@@ -1,18 +1,17 @@
-import { FastifyPluginAsync, FastifyReply, FastifyRequest } from 'fastify'
-import { postService } from '../../../service/postService'
+import { FastifyPluginAsyncTypebox } from 'lib/types'
+import { postService } from 'service/postService'
+import { createPostSchema } from './schema'
 
-const postRoute: FastifyPluginAsync = async (fastify) => {
+const postRoute: FastifyPluginAsyncTypebox = async (fastify) => {
   fastify.get('/', async () => {
     const posts = await postService.get()
     return posts
   })
-  fastify.post('/', async (req: FastifyRequest, reply: FastifyReply) => {
-    const { item } = req.body
 
-    await postService.create({ item })
-
+  fastify.post('/', { schema: createPostSchema }, async (req, reply) => {
+    const result = await postService.create(req.body)
     reply.status(201)
-    reply.send({ message: 'success' })
+    return result
   })
 }
 
