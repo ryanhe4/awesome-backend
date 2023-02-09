@@ -1,4 +1,4 @@
-import { Context, context } from 'db/context'
+import { Context, context } from '../db/context'
 
 export interface CreatePostParam {
   title: string

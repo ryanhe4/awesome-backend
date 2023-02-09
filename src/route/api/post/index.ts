@@ -13,6 +13,14 @@ const postRoute: FastifyPluginAsyncTypebox = async (fastify) => {
     reply.status(201)
     return result
   })
+
+  fastify.post('/delete', async (reqest, reply) => {
+    return 'delete'
+  })
+
+  fastify.put('/', async (request, reply) => {
+    return 'update'
+  })
 }
 
 export default postRoute
